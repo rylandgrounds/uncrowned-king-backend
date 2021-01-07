@@ -6,6 +6,8 @@ module.exports = gql`
     body: String
     createdAt: String
     username: String
+    points: Int
+    type: String
   }
   type User {
     id: ID!
@@ -27,7 +29,7 @@ module.exports = gql`
   type Mutation {
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
-    createWorkout(body: String!): Workout!
+    createWorkout(body: String!, type: String!, points: String!): Workout!
     deleteWorkout(workoutId: ID!): String!
   }
 `;

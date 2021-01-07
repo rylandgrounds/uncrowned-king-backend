@@ -27,11 +27,14 @@ module.exports = {
     },
   },
   Mutation: {
-    async createWorkout(_, { body }, context) {
+    async createWorkout(_, { body, type, points }, context) {
       const user = checkAuth(context);
-      console.log(user);
+
+      console.log(body, type, points);
       const newWorkout = new Workout({
         body,
+        type,
+        points,
         user: user.id,
         username: user.username,
         createdAt: new Date().toISOString(),
