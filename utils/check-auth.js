@@ -4,10 +4,8 @@ require("dotenv").config();
 const key = process.env.KEY;
 
 module.exports = (context) => {
-  // context = { ... headers }
   const authHeader = context.req.headers.authorization;
   if (authHeader) {
-    // Bearer ....
     const token = authHeader.split("Bearer ")[1];
     if (token) {
       try {
