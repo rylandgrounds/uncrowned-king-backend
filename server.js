@@ -2,15 +2,15 @@ const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const { ApolloServer } = require("apollo-server");
 const mongoose = require("mongoose");
+
 require("dotenv").config();
-const PORT = process.env.port || 5000;
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers/");
 const Workout = require("./models/WorkoutLog");
 const User = require("./models/User");
 
 const uri = process.env.ATLAS_URI;
-
+npm i -g nodemon
 const server = new ApolloServer({
   typeDefs: typeDefs,
   resolvers: resolvers,
