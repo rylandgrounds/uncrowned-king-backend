@@ -3,7 +3,7 @@ const { graphqlHTTP } = require("express-graphql");
 const { ApolloServer } = require("apollo-server");
 const mongoose = require("mongoose");
 require("dotenv").config();
-
+const PORT = process.env.port || 5000;
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers/");
 const Workout = require("./models/WorkoutLog");
@@ -21,8 +21,11 @@ mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("MongoDB detected! Time to dance!");
-    return server.listen({ port: 5000 });
+    return server.listen({ port: PORT });
   })
   .then((res) => {
     console.log(`Oiwshaw Database Connected at ${res.url}`);
+  })
+  .catch((err) => {
+    console.error(err);
   });
