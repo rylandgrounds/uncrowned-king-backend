@@ -10,7 +10,6 @@ const Workout = require("./models/WorkoutLog");
 const User = require("./models/User");
 
 const uri = process.env.ATLAS_URI;
-npm i -g nodemon
 const server = new ApolloServer({
   typeDefs: typeDefs,
   resolvers: resolvers,
